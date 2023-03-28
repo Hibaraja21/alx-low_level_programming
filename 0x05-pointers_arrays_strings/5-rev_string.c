@@ -1,27 +1,18 @@
-#include "main.h"
+#include <stdio.h>
+
+void rev_string(char *);
 
 /**
- * rev_string - reverses a string
+ * main - check the code for Holberton School students.
  *
- * @s: string parameter input
- *
- * Return: Nothing
-*/
-
-void rev_string(char *s)
+ * Return: Always 0.
+ */
+int main(void)
 {
-	int l, i;
-	char temp;
+	char s[11] = "Holberton!";
 
-	/*find string length without null char*/
-	for (1 = 0; s[l] != '\0'; ++1)
-		;
-
-	/*swap the string by looping to half the string*/
-	for (i = 0; i < 1 / 2; i++)
-	{
-		temp = s[i];
-		s[i] = s[l - 1 - i]; /*-1 because the array starts from 0*/
-		s[l - 1 - i] = temp;
-	}
+	printf("%s\n", s);
+	rev_string(s);
+	printf("%s\n", s);
+	return (0);
 }
