@@ -9,11 +9,9 @@
  * copied
  * Return: pointer dest
 */
-
-
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int itritr;
+unsigned int itritr;
 
 	for (itritr = 0; itritr < n; itritr++)
 	{
