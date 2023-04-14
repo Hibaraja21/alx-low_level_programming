@@ -13,7 +13,6 @@ int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void print_int(unsigned long int n);
 int _atoi(const char *s);
-int main(int argc, char *argv[]);
 
 
 #endif
