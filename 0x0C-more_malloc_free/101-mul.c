@@ -1,97 +1,38 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
-
 
 /**
- * _puts - print a str, followed by new line
- * @str: ptr to the strg to print
- * Return: void
+ * main - multiplies two positive nums
+ *
+ * @argc: n arguments
+ * @argv: args
+ *
+ * Return: int
 */
 
-void _puts(char *str)
+int main(int argc, char *argv[])
 {
-int a = 0;
-while (str[a])
-{
-	_putchar(str[a]);
-	a++;
-}
+	unsigned long mul;
+	int a, b;
 
-}
-
-/**
- * _atoi - convert a str to an int
- * @s: char type str
- *
- * Return: int converted
- */
-
-int _atoi(const char *s)
-{
-	int sign = 1;
-	unsigned long int res = 0, firstnum, a;
-
-	for (firstnum = 0; !(s[firstnum] >= 48 && s[firstnum] <= 57); firstnum++)
+	if (argc != 3)
 	{
-		if (s[firstnum] == '-')
+		printf("Error\n");
+		exit(98);
+	}
+
+	for (a = 1; a < argc; a++)
+	{
+		for (b = 0; argv[a][b] != '\0'; b++)
 		{
-			sign *= -1;
+			if (argv[a][b] > 57 || argv[a][b] < 48)
+			{
+				printf("Error\n");
+				exit(98);
+			}
 		}
 	}
+	mul = atoi(argv[1]) * _atoi(argv[2]);
+	printf("%lu\n", mul);
 
-	for (a = firstnum; s[a] >= 48 && s[a] <= 57; a++)
-	{
-		res *= 10;
-		res += (s[a] - 48);
-	}
-
-	return (sign * res);
-}
-
-/**
- * print_int - prints an int
- * @n: int
- *
- * Return: 0
- */
-
-void print_int(unsigned long int n)
-{
-
-unsigned  long int divisor = 1, a, res;
-
-for (a = 0; n / divisor > 9; a++, divisor *= 10)
-;
-
-for (; divisor >= 1; n %= divisor, divisor /= 10)
-{
-	res = n / divisor;
-	_putchar('0' + res);
-}
-
-}
-
-/**
- * main - print the result of the multiplication, followed by a new line
- * @argc: int
- *
- * @argv: list
- *
- * Return: 0
- */
-
-int main(int argc, char const *argv[])
-{
-(void)argc;
-
-if (argc != 3)
-{
-	_puts("Error ");
-	exit(98);
-}
-print_int(_atoi(argv[1]) * _atoi(argv[2]));
-_putchar('\n');
-
-return (0);
+	return (0);
 }
